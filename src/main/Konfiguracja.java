@@ -4,6 +4,8 @@ import rabaty.AdapterKlasowyLosowegoRabatu;
 import rabaty.ObliczCenePoRabacie;
 import rabaty.ObliczCenePoRabacieKwotowym;
 import rabaty.ObliczCenePoRabacieProcentowym;
+import raporty.DrukFaktury;
+import raporty.DrukFakturyFormalnej;
 
 public class Konfiguracja {
     private static Konfiguracja instance;
@@ -24,6 +26,10 @@ public class Konfiguracja {
     public ObliczCenePoRabacie getBiezacyRabat() {
         return new AdapterKlasowyLosowegoRabatu();
         // return new ObliczCenePoRabacieProcentowym();
+    }
+
+    public DrukFaktury getSzablonWydruku() {
+        return new DrukFakturyFormalnej();
     }
 
 

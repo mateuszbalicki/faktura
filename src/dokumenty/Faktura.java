@@ -26,9 +26,11 @@ public class Faktura {
         k.getBiezacyRabat();
         kalkulatorRabatu = k.getBiezacyRabat();
 	}
-	public void dodajPozycje(Towar towar, double ilosc)
-	{
-		pozycje.add(new Pozycja(towar,ilosc));
+	public void dodajPozycje(Towar towar, double ilosc) {
+		Pozycja nowaPozycja = new Pozycja(towar, ilosc);
+		double cenaPoRabacie = kalkulatorRabatu.obliczCenePoRabacie(towar.getCena());
+		nowaPozycja.setCena(cenaPoRabacie);
+		pozycje.add(nowaPozycja);
 		this.przeliczSume();
 	}
 	public double getSuma()
@@ -51,7 +53,6 @@ public class Faktura {
 			pozycja = iteratorPozycji.next();
 			suma+=pozycja.getWartosc();
 		}
-        suma = kalkulatorRabatu.obliczCenePoRabacie(suma);
 	}
 	public Iterator<Pozycja> getIteratorPozycji()
 	{
