@@ -2,9 +2,7 @@ package main;
 
 import java.util.Calendar;
 
-import magazyn.Kategoria;
-import magazyn.Podkategoria;
-import magazyn.Towar;
+import magazyn.*;
 
 import dokumenty.Faktura;
 
@@ -20,19 +18,26 @@ public class Ui {
 		//Tworzymy towary
 		Towar t1=new Towar(10,"buty");
 		Towar t2=new Towar(2,"skarpety");
+		Towar t5=new BottleOfWine(20,"Riesling");
+		Towar t6=new FuelCanister(25,"Diesel");
 		
 		//I przykladowa fakture
 		Faktura f=new Faktura(teraz.getTime(),"Fido");
 		f.dodajPozycje(t1,3);
 		f.dodajPozycje(t2, 5);
+		f.dodajPozycje(t1,2);
+		f.dodajPozycje(t1,5);
+		f.dodajPozycje(t2, 1);
+		f.dodajPozycje(t5,2);
+		f.dodajPozycje(t6,1);
 
         WydrukFaktury print = new WydrukFaktury();
         print.wypiszFakture(f);
 
-		
+		System.out.println("\n------------------------------");
 		//TEST ZEWN. rabatu
 		LosowyRabat lr=new LosowyRabat();
-		System.out.println(lr.losujRabat());
+		System.out.println("Losowy rabat:" + lr.losujRabat());
 
 		System.out.println("\n\n--- DRZEWO KATEGORII (KOMPOZYT) ---");
 

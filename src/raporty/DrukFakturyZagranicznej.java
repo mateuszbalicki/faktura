@@ -19,6 +19,7 @@ public class DrukFakturyZagranicznej extends DrukFaktury {
     @Override
     protected void drukujStopke(Faktura faktura) {
         System.out.println("------------------------");
+        System.out.println("Liczba pozycji: " + faktura.getLiczbaPozycji());
         System.out.println("Total Amount: " + faktura.getSuma());
     }
 }

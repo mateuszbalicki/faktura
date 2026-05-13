@@ -27,12 +27,28 @@ public class Faktura {
         kalkulatorRabatu = k.getBiezacyRabat();
 	}
 	public void dodajPozycje(Towar towar, double ilosc) {
+		for(Pozycja pozycja : pozycje) {
+			if (pozycja.getNazwa().equals(towar.getNazwa())) {
+				double nowaIlosc = pozycja.getIlosc() + ilosc;
+				pozycja.setIlosc(nowaIlosc);
+				this.przeliczSume();
+				return;
+			}
+		}
+
 		Pozycja nowaPozycja = new Pozycja(towar, ilosc);
 		double cenaPoRabacie = kalkulatorRabatu.obliczCenePoRabacie(towar.getCena());
 		nowaPozycja.setCena(cenaPoRabacie);
 		pozycje.add(nowaPozycja);
+
 		this.przeliczSume();
 	}
+
+
+	public int getLiczbaPozycji() {
+		return this.pozycje.size();
+	}
+
 	public double getSuma()
 	{
 		return suma;

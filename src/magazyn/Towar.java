@@ -11,13 +11,11 @@ public class Towar {
 	}
 	
 	//operacje na cenie
-	public void setCena(double cena)
-	{
+	public void setCena(double cena) {
 		this.cena=cena;
 	}
 	
-	public double getCena()
-	{
+	public double getCena() {
 		return cena;
 	}
 	//operacje na nazwie towaru
@@ -28,5 +26,10 @@ public class Towar {
 	public void setNazwa(String nazwa)
 	{
 		this.nazwa=nazwa;
+	}
+
+	@Override
+	public String toString() {
+		return nazwa;
 	}
 }

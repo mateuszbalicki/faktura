@@ -17,7 +17,10 @@ public class DrukFakturyFormalnej extends DrukFaktury {
 
     @Override
     protected void drukujStopke(Faktura faktura) {
+        double wyswietlanaSuma = Math.round(faktura.getSuma() * 100.0) / 100.0;
+
         System.out.println("------------------------");
-        System.out.println("Suma do zapłaty: " + faktura.getSuma());
+        System.out.println("Liczba pozycji: " + faktura.getLiczbaPozycji());
+        System.out.println("Suma do zapłaty: " + wyswietlanaSuma);
     }
 }

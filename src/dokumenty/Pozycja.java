@@ -52,17 +52,20 @@ public class Pozycja {
 
 	// jak sie zmieni cos w pozycji to trzeba wywolac te metode
 	private void przeliczWartosc() {
-		this.wartosc = this.ilosc * this.cena;
+		double dokladnaWartosc = this.ilosc * this.cena;
+
+		this.wartosc = Math.round(dokladnaWartosc * 100.0) / 100.0;
 	}
 
     @Override
     public String toString() {
-        return "Pozycja{" +
+		double wyswietlanaCena = Math.round(this.cena * 100.0) / 100.0;
+
+        return "Pozycja: " +
                 "towar=" + towar +
-                ", cena=" + cena +
+                ", cena=" + wyswietlanaCena +
                 ", ilosc=" + ilosc +
                 ", wartosc=" + wartosc +
-                ", nazwa='" + nazwa + '\'' +
-                '}';
+                ", nazwa='" + nazwa + '\'';
     }
 }

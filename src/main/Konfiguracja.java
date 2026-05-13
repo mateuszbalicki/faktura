@@ -32,5 +32,9 @@ public class Konfiguracja {
         return new DrukFakturyFormalnej();
     }
 
+    public double getKwotaAkcyzy() {
+        return 5.56;
+    }
+
 
 }
